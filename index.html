@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <title>Fale comigo no WhatsApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Tag global do Google Ads (SEU ID JÁ INSERIDO) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-9620545915"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-9620545915');
+  </script>
+  
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #1a2364; /* cor sólida do fundo */
+      background-color: #1a2364;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,6 +64,7 @@
       text-decoration: none;
       border-radius: 8px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
     a.botao:hover {
@@ -66,7 +77,15 @@
     <img src="minha_foto.png" alt="Minha foto">
     <h1>Fale comigo no WhatsApp</h1>
     <p>Clique no botão abaixo para iniciar uma conversa:</p>
-    <a class="botao" href="https://wa.me/5579996037276" target="_blank">+55 79 99603-7276</a>
+    
+    <!-- Botão com rastreamento -->
+    <a class="botao" 
+       id="whatsapp-conversion-btn" 
+       href="https://wa.me/5579996037276" 
+       target="_blank"
+       onclick="gtag('event', 'conversion', {'send_to': 'AW-9620545915/REPLACE_WITH_CONVERSION_LABEL'});">
+      +55 79 99603-7276
+    </a>
   </div>
 </body>
 </html>
