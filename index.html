@@ -12,6 +12,14 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-M5WWPHWDP9');
+
+    // Função para rastrear clique no botão do WhatsApp
+    function registrarCliqueWhatsapp() {
+      gtag('event', 'clique_whatsapp', {
+        'event_category': 'contato',
+        'event_label': 'botao_whatsapp'
+      });
+    }
   </script>
 
   <style>
@@ -128,7 +136,6 @@
       text-decoration: underline;
     }
 
-    /* NOVO ESTILO PARA O BOTÃO CENTRALIZADO */
     .botao-central {
       text-align: center;
       margin: 1.5em 0;
@@ -151,9 +158,9 @@
         <img src="Logo-perto-com-CRP.png" alt="Logo com CRP" class="logo-crp">
       </div>
 
-      <!-- BOTÃO ADICIONADO AQUI -->
+      <!-- BOTÃO COM rastreamento -->
       <div class="botao-central">
-        <a class="botao-whatsapp" href="https://wa.me/5579996037276?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20consulta">
+        <a class="botao-whatsapp" href="https://wa.me/5579996037276?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20consulta" onclick="registrarCliqueWhatsapp()">
           Comece hoje mesmo
         </a>
       </div>
@@ -168,7 +175,9 @@
         Acredito na força do autoconhecimento como caminho para o bem-estar.
         Gosto de futebol, de escrever e de me reconectar com a natureza — meu refúgio e inspiração.
       </p>
-      <a class="botao-whatsapp" href="https://wa.me/5579996037276?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20consulta">
+
+      <!-- SEGUNDO BOTÃO COM rastreamento -->
+      <a class="botao-whatsapp" href="https://wa.me/5579996037276?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20consulta" onclick="registrarCliqueWhatsapp()">
         Comece hoje mesmo
       </a>
     </div>
