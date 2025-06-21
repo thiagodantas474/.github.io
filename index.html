@@ -675,74 +675,25 @@
             }
         }
         
-        /* Espaço para vídeo com capa personalizada */
-        .video-container {
+        /* Espaço para vídeo SIMPLIFICADO */
+        .video-space {
             margin: 4rem auto;
             max-width: 800px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             position: relative;
-            cursor: pointer;
-        }
-        
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
         }
         
-        .video-thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        
-        .video-container:hover .video-thumbnail img {
-            transform: scale(1.03);
-            filter: brightness(0.9);
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        
-        .play-button i {
-            color: var(--azul-escuro);
-            font-size: 2.5rem;
-            margin-left: 5px;
-        }
-        
-        .video-container:hover .play-button {
-            background-color: rgba(255, 255, 255, 1);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-iframe {
+        .video-space iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
-            display: none;
         }
         
         /* Rodapé */
@@ -943,15 +894,6 @@
             .footer-logo img {
                 height: 100px;
             }
-            
-            .play-button {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .play-button i {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -999,24 +941,18 @@
                 </div>
                 
                 <div class="hero-image">
+                    <!-- SUA FOTO GRANDE AQUI - SUBSTITUA O NOME DO ARQUIVO -->
                     <img src="foto_grande.jpg" alt="Psicólogo Thiago Dantas">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Espaço para Vídeo com Capa -->
+    <!-- Espaço para Vídeo SIMPLIFICADO -->
     <div class="container">
-        <div class="video-container" id="videoContainer">
-            <div class="video-thumbnail">
-                <!-- CAPA DO VÍDEO - SUBSTITUA O NOME DO ARQUIVO -->
-                <img src="capa_video.jpg" alt="Capa do vídeo">
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-            <!-- VÍDEO DO YOUTUBE -->
-            <iframe class="video-iframe" src="https://www.youtube.com/embed/gh_jT0BW4Uc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-space">
+            <!-- VÍDEO SEM AUTOPLAY - SUBSTITUA O NOME DO ARQUIVO -->
+            <iframe src="meu_video.mp4" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -1134,7 +1070,7 @@
                         </div>
                         <div class="contato-text">
                             <h3>Endereço</h3>
-                            <p>Horizonte Jardins Offices - Jardins, Aracaju - SE, 49020-550</p>
+                            <p>Oásis Consultório | Av. Hélio de Souza Leão, 383 - Sala 1105 - Jardins, Aracaju - SE, 49015-160</p>
                         </div>
                     </div>
                     
@@ -1271,20 +1207,6 @@
             e.preventDefault();
             alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
             this.reset();
-        });
-        
-        // Controle do vídeo com capa
-        const videoContainer = document.getElementById('videoContainer');
-        const videoThumbnail = videoContainer.querySelector('.video-thumbnail');
-        const videoIframe = videoContainer.querySelector('.video-iframe');
-        
-        videoContainer.addEventListener('click', function() {
-            videoThumbnail.style.display = 'none';
-            videoIframe.style.display = 'block';
-            
-            // Atualiza o src para garantir que o vídeo comece a carregar
-            const currentSrc = videoIframe.src;
-            videoIframe.src = currentSrc + "&autoplay=1";
         });
     </script>
 </body>
