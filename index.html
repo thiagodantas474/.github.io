@@ -6,8 +6,10 @@
     <title>Psicólogo Thiago Dantas | Bem-Estar Emocional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Carregar a API do Vimeo primeiro -->
-    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <!-- Importando a fonte Codec Pro para o cabeçalho -->
+    <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet">
+    
     <style>
         :root {
             --azul-escuro: #1c2464;
@@ -38,7 +40,7 @@
             font-weight: 700;
         }
         
-        /* Cabeçalho */
+        /* Cabeçalho com fonte Codec Pro */
         header {
             background-color: var(--azul-escuro);
             color: white;
@@ -57,37 +59,22 @@
         
         .nav-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-img {
-            height: 210px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.05);
         }
         
         nav ul {
             display: flex;
             list-style: none;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         nav li {
-            margin-left: 1.8rem;
+            margin: 0 1.8rem;
         }
         
+        /* Aplicando a fonte Codec Pro para os itens de navegação */
         nav a {
             color: white;
             text-decoration: none;
@@ -96,6 +83,8 @@
             position: relative;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            font-family: 'Codec Pro', sans-serif;
+            letter-spacing: 0.5px;
         }
         
         nav a::after {
@@ -113,13 +102,14 @@
             width: 100%;
         }
         
-        /* Hero Section */
+        /* Hero Section - Logo acima da imagem grande */
         .hero {
             background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-claro) 100%);
             color: white;
-            padding: 5rem 0 3rem;
+            padding: 2rem 0 3rem;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
         
         .hero::before {
@@ -130,6 +120,17 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 20%);
+        }
+        
+        .hero-logo {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .hero-logo img {
+            height: 180px;
+            width: auto;
+            margin-bottom: 1.5rem;
         }
         
         .hero-grid {
@@ -144,6 +145,7 @@
         .hero-content {
             max-width: 900px;
             padding: 0 20px;
+            text-align: left;
         }
         
         .hero h1 {
@@ -192,6 +194,7 @@
             gap: 2rem;
             margin-top: 3rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .info-item {
@@ -258,9 +261,6 @@
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
         
         .section-title::after {
@@ -677,8 +677,8 @@
             }
         }
         
-        /* Espaço para vídeo do Vimeo - Corrigido */
-        .vimeo-container {
+        /* Espaço para vídeo do Google Drive - Solução definitiva */
+        .drive-container {
             margin: 4rem auto;
             max-width: 800px;
             border-radius: 15px;
@@ -686,9 +686,10 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             position: relative;
             cursor: pointer;
+            background: #000;
         }
         
-        .vimeo-wrapper {
+        .drive-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* Proporção 16:9 */
             height: 0;
@@ -697,7 +698,7 @@
             border-radius: 15px;
         }
         
-        .vimeo-wrapper iframe {
+        .drive-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -706,7 +707,7 @@
             border: none;
         }
         
-        .vimeo-thumbnail {
+        .drive-thumbnail {
             position: absolute;
             top: 0;
             left: 0;
@@ -718,14 +719,14 @@
             background-color: #000;
         }
         
-        .vimeo-thumbnail img {
+        .drive-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             opacity: 0.9;
         }
         
-        .vimeo-play-button {
+        .drive-play-button {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -741,13 +742,13 @@
             transition: all 0.3s ease;
         }
         
-        .vimeo-play-button i {
+        .drive-play-button i {
             color: var(--azul-escuro);
             font-size: 2.5rem;
             margin-left: 5px;
         }
         
-        .vimeo-thumbnail:hover .vimeo-play-button {
+        .drive-thumbnail:hover .drive-play-button {
             background-color: rgba(255, 255, 255, 1);
             transform: translate(-50%, -50%) scale(1.1);
         }
@@ -775,7 +776,7 @@
         }
         
         .footer-logo img {
-            height: 210px;
+            height: 180px;
             width: auto;
         }
         
@@ -855,7 +856,7 @@
                 justify-content: center;
             }
             
-            .logo-img {
+            .hero-logo img {
                 height: 140px;
             }
             
@@ -877,11 +878,11 @@
             }
             
             nav li {
-                margin: 0;
+                margin: 0 1rem;
             }
             
             .hero {
-                padding: 4rem 0 2rem;
+                padding: 3rem 0 2rem;
             }
             
             .hero h1 {
@@ -915,7 +916,7 @@
                 font-size: 1.1rem;
             }
             
-            .logo-img {
+            .hero-logo img {
                 height: 120px;
             }
             
@@ -925,9 +926,8 @@
         }
         
         @media (max-width: 480px) {
-            .logo-container {
-                flex-direction: column;
-                text-align: center;
+            nav li {
+                margin: 0 0.8rem;
             }
             
             .hero h1 {
@@ -943,7 +943,7 @@
                 font-size: 1.8rem;
             }
             
-            .logo-img {
+            .hero-logo img {
                 height: 100px;
             }
             
@@ -951,25 +951,21 @@
                 height: 100px;
             }
             
-            .vimeo-play-button {
+            .drive-play-button {
                 width: 60px;
                 height: 60px;
             }
             
-            .vimeo-play-button i {
+            .drive-play-button i {
                 font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho apenas com links de navegação -->
     <header>
         <div class="container nav-container">
-            <div class="logo-container">
-                <img src="Logo-perto-com-CRP.png" alt="Logo Psicólogo Thiago Dantas" class="logo-img">
-            </div>
-            
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -982,9 +978,13 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section com logo acima da imagem -->
     <section id="home" class="hero">
         <div class="container">
+            <div class="hero-logo">
+                <img src="Logo-perto-com-CRP.png" alt="Logo Psicólogo Thiago Dantas" class="logo-img">
+            </div>
+            
             <div class="hero-grid">
                 <div class="hero-content">
                     <h1>Transforme sua vida emocional</h1>
@@ -1012,24 +1012,25 @@
         </div>
     </section>
 
-    <!-- Espaço para Vídeo do Vimeo - Corrigido -->
+    <!-- Espaço para Vídeo do Google Drive - Solução definitiva -->
     <div class="container">
-        <div class="vimeo-container">
-            <div class="vimeo-wrapper">
+        <div class="drive-container">
+            <div class="drive-wrapper">
                 <!-- Capa personalizada para o vídeo -->
-                <div class="vimeo-thumbnail" id="vimeoThumbnail">
+                <div class="drive-thumbnail" id="driveThumbnail">
                     <img src="capa_video.jpg" alt="Capa do vídeo">
-                    <div class="vimeo-play-button">
+                    <div class="drive-play-button">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 
-                <!-- Player do Vimeo -->
-                <iframe id="vimeoPlayer" 
-                        src="https://player.vimeo.com/video/1095175084?h=9dccbf1705&autoplay=0&muted=1" 
+                <!-- Player do Google Drive -->
+                <iframe id="drivePlayer" 
+                        src="https://drive.google.com/file/d/1ocHbSCcfUiwKWD8CY73JOHKlQpcJLpLC/preview" 
                         frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        allowfullscreen></iframe>
+                        allow="autoplay; fullscreen; clipboard-write; encrypted-media; web-share" 
+                        allowfullscreen
+                        style="display:none"></iframe>
             </div>
         </div>
     </div>
@@ -1148,7 +1149,7 @@
                         </div>
                         <div class="contato-text">
                             <h3>Endereço</h3>
-                            <p>Horizonte Jardins Offices - Jardins, Aracaju - SE, 49020-550</p>
+                            <p>Oásis Consultório | Av. Hélio de Souza Leão, 383 - Sala 1105 - Jardins, Aracaju - SE, 49015-160</p>
                         </div>
                     </div>
                     
@@ -1242,7 +1243,7 @@
                 </div>
                 
                 <div class="copyright">
-                    © 2023 Psicólogo Thiago Dantas. Todos os direitos reservados. CRP: XX/XXXXX
+                    © 2023 Psicólogo Thiago Dantas. Todos os direitos reservados. CRP: 19/004658
                 </div>
             </div>
         </div>
@@ -1287,46 +1288,21 @@
             this.reset();
         });
         
-       <!-- Substitua todo o código do player Vimeo por este: -->
-<div class="container">
-    <div class="vimeo-container">
-        <div class="vimeo-wrapper">
-            <div class="vimeo-thumbnail" id="vimeoThumbnail">
-                <img src="capa_video.jpg" alt="Capa do vídeo" id="vimeoThumbImg">
-                <div class="vimeo-play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
+        // Controle do vídeo do Google Drive
+        document.addEventListener('DOMContentLoaded', function() {
+            const driveThumbnail = document.getElementById('driveThumbnail');
+            const drivePlayer = document.getElementById('drivePlayer');
             
-            <!-- Player do Vimeo (inicialmente oculto) -->
-            <div id="vimeoPlayerContainer" style="display:none">
-                <iframe id="vimeoPlayer" 
-                    src="https://player.vimeo.com/video/1095175084?h=9dccbf1705&autoplay=0&muted=1" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Controle simplificado do Vimeo
-    document.addEventListener('DOMContentLoaded', function() {
-        const vimeoThumbnail = document.getElementById('vimeoThumbnail');
-        const playerContainer = document.getElementById('vimeoPlayerContainer');
-        
-        vimeoThumbnail.addEventListener('click', function() {
-            // Esconde a capa e mostra o player
-            vimeoThumbnail.style.display = 'none';
-            playerContainer.style.display = 'block';
-            
-            // Força o carregamento do iframe (solução para bloqueio de autoplay)
-            const iframe = document.getElementById('vimeoPlayer');
-            const newSrc = iframe.src + "&autoplay=1";
-            iframe.src = newSrc;
+            driveThumbnail.addEventListener('click', function() {
+                // Esconde a capa e mostra o vídeo
+                driveThumbnail.style.display = 'none';
+                drivePlayer.style.display = 'block';
+                
+                // Força o carregamento do iframe
+                const currentSrc = drivePlayer.src;
+                drivePlayer.src = currentSrc;
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
