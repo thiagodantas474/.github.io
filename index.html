@@ -1287,41 +1287,46 @@
             this.reset();
         });
         
-        // Controle do vídeo do Vimeo - Corrigido
-        document.addEventListener('DOMContentLoaded', function() {
-            const vimeoThumbnail = document.getElementById('vimeoThumbnail');
-            const vimeoPlayer = document.getElementById('vimeoPlayer');
+       <!-- Substitua todo o código do player Vimeo por este: -->
+<div class="container">
+    <div class="vimeo-container">
+        <div class="vimeo-wrapper">
+            <div class="vimeo-thumbnail" id="vimeoThumbnail">
+                <img src="capa_video.jpg" alt="Capa do vídeo" id="vimeoThumbImg">
+                <div class="vimeo-play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
             
-            // Verificar se a API do Vimeo está disponível
-            if (typeof Vimeo !== 'undefined') {
-                const player = new Vimeo.Player(vimeoPlayer);
-                
-                vimeoThumbnail.addEventListener('click', function() {
-                    // Esconde a capa e inicia o vídeo
-                    vimeoThumbnail.style.display = 'none';
-                    player.play();
-                });
-                
-                // Quando o vídeo terminar, mostra a capa novamente
-                player.on('ended', function() {
-                    vimeoThumbnail.style.display = 'block';
-                });
-                
-                // Pausar vídeo quando ele não estiver visível
-                window.addEventListener('scroll', function() {
-                    const rect = vimeoPlayer.getBoundingClientRect();
-                    const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-                    
-                    if (!isVisible) {
-                        player.pause();
-                    }
-                });
-            } else {
-                console.error('Vimeo API não carregada');
-                // Fallback: se a API não carregar, remover a capa
-                vimeoThumbnail.style.display = 'none';
-            }
+            <!-- Player do Vimeo (inicialmente oculto) -->
+            <div id="vimeoPlayerContainer" style="display:none">
+                <iframe id="vimeoPlayer" 
+                    src="https://player.vimeo.com/video/1095175084?h=9dccbf1705&autoplay=0&muted=1" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Controle simplificado do Vimeo
+    document.addEventListener('DOMContentLoaded', function() {
+        const vimeoThumbnail = document.getElementById('vimeoThumbnail');
+        const playerContainer = document.getElementById('vimeoPlayerContainer');
+        
+        vimeoThumbnail.addEventListener('click', function() {
+            // Esconde a capa e mostra o player
+            vimeoThumbnail.style.display = 'none';
+            playerContainer.style.display = 'block';
+            
+            // Força o carregamento do iframe (solução para bloqueio de autoplay)
+            const iframe = document.getElementById('vimeoPlayer');
+            const newSrc = iframe.src + "&autoplay=1";
+            iframe.src = newSrc;
         });
-    </script>
+    });
+</script>
 </body>
 </html>
